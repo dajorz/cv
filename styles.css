@@ -1165,7 +1165,8 @@ body.lang-english .lang-en {
         grid-template-columns: 320px 1fr !important;
     }
 
-    .language-toggle {
+    .language-toggle,
+    .pdf-download-btn {
         display: none !important;
     }
 
