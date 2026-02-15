@@ -5,7 +5,7 @@
 
 ## 🚀 About
 
-Professional online CV showcasing my experience as a **Senior Software Developer** specializing in **.NET**, **Azure Cloud technologies**, and **DevOps**.
+Professional online CV showcasing my experience as a **Senior Software Engineer** specializing in **Identity & Access Management (IAM)**, **.NET Core**, **Azure Cloud Infrastructure**, **Kubernetes**, **Terraform**, **Bicep**, and **FinOps**.
 
 ### ✨ Features
 
@@ -28,8 +28,7 @@ Professional online CV showcasing my experience as a **Senior Software Developer
 
 - 👤 **Profile** with photo and contact information
 - 💼 **Professional Experience** with detailed achievements
-- 🎓 **Education** background
-- 🚀 **Projects** showcase
+- 🎓 **Education** and certifications
 - 🛠️ **Technical Skills** with organized categories
 - 🌍 **Languages** proficiency levels
 
@@ -71,20 +70,20 @@ xdg-open index.html  # Linux
 
 ```
 cv/
-├── index.html          # Main CV file
-├── foto.jpg           # Profile photo
-├── README.md          # This file
-└── backup/           # Backup versions
-    └── cv-bilingue.html
+├── index.html          # Main CV file with bilingual content
+├── styles.css          # All CSS styles and responsive design
+├── script.js           # Language toggle and dynamic features
+├── picture.jpg         # Profile photo
+└── README.md           # This file
 ```
 
 ## 🔧 Customization
 
 ### Update Information
-1. Edit personal details in the HTML file
-2. Replace `foto.jpg` with your photo
-3. Update meta tags for SEO
-4. Modify colors in CSS variables
+1. Edit personal details in `index.html`
+2. Replace `picture.jpg` with your photo
+3. Update meta tags for SEO in `index.html`
+4. Modify colors in `styles.css`
 ```
 
 ## 📊 SEO Features
@@ -113,7 +112,7 @@ This project is open source and available under the [MIT License](LICENSE).
 Feel free to reach out if you have any questions or suggestions!
 
 - 📧 Email: [dani.jordan.s@gmail.com](mailto:dani.jordan.s@gmail.com)
-- 💼 LinkedIn: [linkedin.com/in/daniel-jordan](https://linkedin.com/in/daniel-jordan)
+- 💼 LinkedIn: [linkedin.com/in/danieljordansisamon](https://linkedin.com/in/danieljordansisamon)
 - 🐙 GitHub: [github.com/dajorz](https://github.com/dajorz)
 
 ---

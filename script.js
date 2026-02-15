@@ -19,8 +19,8 @@ function toggleLanguage() {
  * Based on career start date (first job at Hiberus)
  */
 function calculateYearsOfExperience() {
-    // Professional career start date (first job at Hiberus)
-    const startDate = new Date('2013-10-01');
+    // Professional career start date (first job at Hiberus - internship)
+    const startDate = new Date('2013-09-01');
     const currentDate = new Date();
     
     // Calculate difference in years
