@@ -1,0 +1,49 @@
+schema: spec-driven
+
+# Project context shown to AI when creating artifacts.
+context: |
+  Project: Daniel Jordan – Online CV (https://dajorz.github.io/cv/)
+  Type: Static single-page website hosted on GitHub Pages.
+  Tech stack:
+    - HTML5 (semantic markup, structured data, Open Graph / Twitter meta tags)
+    - CSS3 (Flexbox/Grid, responsive design, print-optimized styles)
+    - Vanilla JavaScript (no frameworks, no build step)
+  Files:
+    - index.html  → markup and content (bilingual EN/ES via data attributes)
+    - styles.css  → screen + print styles, responsive breakpoints
+    - script.js   → language toggle and dynamic content switching
+    - README.md   → project description
+  Conventions:
+    - No build tooling, no package manager: edits go directly into the source files.
+    - Keep the site fully static and deployable to GitHub Pages with no server logic.
+    - Maintain bilingual parity (English + Spanish) for any user-facing text.
+    - Preserve SEO metadata (title, description, keywords, OG, Twitter, JSON-LD).
+    - Keep print stylesheet working: custom page breaks, hidden web-only elements.
+    - Responsive breakpoints: desktop ≥1200px, tablet 768–1199px, mobile 320–767px.
+    - Use semantic HTML and accessible markup (alt text, ARIA where appropriate).
+    - Conventional Commits for git messages (e.g. feat:, fix:, docs:, style:).
+  Domain:
+    Personal CV / portfolio for a Senior Software Engineer focused on IAM,
+    .NET Core, Azure, Kubernetes, Terraform, Bicep and FinOps.
+  Non-goals:
+    - No backend, no databases, no authentication.
+    - No JS frameworks or bundlers unless explicitly proposed as a change.
+
+# Per-artifact rules
+rules:
+  proposal:
+    - Keep proposals concise (under ~400 words).
+    - Always include a "Why" and a "Non-goals" section.
+    - Call out user-visible impact (content, layout, print, SEO, i18n).
+  design:
+    - Only required for non-trivial changes (new sections, layout rewrites,
+      tooling changes, JS behavior beyond simple toggles).
+    - Document accessibility and print implications when relevant.
+  tasks:
+    - Break work into small, verifiable steps (ideally ≤1 hour each).
+    - Include a task to update both English and Spanish content when copy changes.
+    - Include a task to verify responsive layout and print preview when styles change.
+  specs:
+    - Capabilities should describe user-visible behavior of the CV
+      (sections, language toggle, responsive behavior, print output, SEO).
+    - Avoid implementation detail in requirements; keep scenarios outcome-focused.
