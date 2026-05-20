@@ -12,6 +12,19 @@ function toggleLanguage() {
     
     body.classList.toggle('lang-english');
     toggle.classList.toggle('active');
+    updatePdfDownloadLink();
+}
+
+/**
+ * Update the pretty PDF download link based on the active language
+ */
+function updatePdfDownloadLink() {
+    const link = document.getElementById('pdf-download-btn');
+    if (!link) return;
+    const lang = document.body.classList.contains('lang-english') ? 'EN' : 'ES';
+    const filename = 'DanielJordan-' + lang + '.pdf';
+    link.href = filename;
+    link.download = filename;
 }
 
 /**
@@ -102,10 +115,9 @@ function activateAtsPrint() {
     const lang = isEnglish ? 'EN' : 'ES';
 
     // Store original title and set ATS filename hint.
-    // Format `DanielJordan-<LANG>` follows Enhancv's recommendation
-    // (first+last name, no numbers, no extra periods, no ATS tag).
+    // Format `DanielJordan-ATS-<LANG>` distinguishes ATS exports from pretty PDFs.
     _originalTitle = document.title;
-    document.title = 'DanielJordan-' + lang;
+    document.title = 'DanielJordan-ATS-' + lang;
 
     // Activate ATS print mode
     document.body.classList.add('ats-print');
@@ -148,6 +160,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize scroll-based language toggle visibility (mobile only)
     handleLanguageToggleScroll();
+    
+    // Set initial PDF download link for default language
+    updatePdfDownloadLink();
     
     // Wire ATS print button
     const atsBtn = document.getElementById('ats-download-btn');

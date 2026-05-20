@@ -15,6 +15,10 @@ The CV SHALL expose an on-screen action that lets the visitor export the CV as a
 - **WHEN** the visitor clicks the "ATS PDF" button
 - **THEN** the browser's print dialog opens with the page rendered in ATS layout, so the visitor can save it as PDF
 
+#### Scenario: ATS PDF suggested filename includes ATS infix
+- **WHEN** the visitor saves the ATS export from the print dialog
+- **THEN** the browser suggests `DanielJordan-ATS-EN.pdf` when English is active or `DanielJordan-ATS-ES.pdf` when Spanish is active
+
 ### Requirement: ATS print layout
 
 When ATS export is active, the CV SHALL be rendered as a single-column, plain-typography, black-on-white document optimized for ATS parsing.
