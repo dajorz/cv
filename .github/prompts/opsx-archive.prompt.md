@@ -1,5 +1,6 @@
 ---
 description: Archive a completed change in the experimental workflow
+model: Claude Sonnet 4.6 (copilot)
 ---
 
 Archive a completed change in the experimental workflow.

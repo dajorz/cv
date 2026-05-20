@@ -1,5 +1,6 @@
 ---
 description: Propose a new change - create it and generate all artifacts in one step
+model: Claude Opus 4.6 (copilot)
 ---
 
 Propose a new change - create the change and generate all artifacts in one step.

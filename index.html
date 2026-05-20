@@ -84,7 +84,7 @@
             </div>
 
             <!-- Contact Section -->
-            <div class="sidebar-section">
+            <div class="sidebar-section contact">
                 <h3>
                     <span class="lang-es">Contacto</span>
                     <span class="lang-en">Contact</span>
@@ -109,7 +109,7 @@
             </div>
 
             <!-- Skills Section -->
-            <div class="sidebar-section">
+            <div class="sidebar-section skills">
                 <h3>
                     <span class="lang-es">Habilidades Técnicas</span>
                     <span class="lang-en">Technical Skills</span>
@@ -188,7 +188,7 @@
             </div>
 
             <!-- Languages Section -->
-            <div class="sidebar-section">
+            <div class="sidebar-section languages">
                 <h3>
                     <span class="lang-es">Idiomas</span>
                     <span class="lang-en">Languages</span>
@@ -219,7 +219,7 @@
         <!-- Main Content -->
         <div class="main-content">
             <!-- Professional Summary -->
-            <div class="section">
+            <div class="section" id="summary">
                 <h2>
                     <span class="lang-es">Resumen Profesional</span>
                     <span class="lang-en">Professional Summary</span>
@@ -253,7 +253,7 @@
             </div>
 
             <!-- Experience Section -->
-            <div class="section">
+            <div class="section" id="experience">
                 <h2>
                     <span class="lang-es">Experiencia Profesional</span>
                     <span class="lang-en">Professional Experience</span>
@@ -277,19 +277,19 @@
                         <span class="lang-es">
                             Como miembro del equipo de Identity and Access Management (IAM) para Youforce, me enfoco en el desarrollo técnico y la excelencia operativa de sistemas de identidad que soportan soluciones HCM a gran escala. Aprovecho un enfoque de "Ingeniería Aumentada", utilizando herramientas impulsadas por IA para maximizar la velocidad de entrega sin comprometer la seguridad o la integridad arquitectónica.
                             <ul>
-                                <li><strong>Desarrollo de Microservicios:</strong> Diseño e implementación de lógica de negocio y servicios de identidad usando .NET Core, garantizando APIs de alto rendimiento, escalables y robustas dentro del ecosistema Youforce.</li>
-                                <li><strong>Desarrollo Asistido por IA (GitHub Copilot):</strong> Experto en flujos de trabajo impulsados por IA, utilizando Copilot para la generación de código (90%+) mientras actúo como revisor crítico para garantizar que todo el output generado por IA cumpla con los estándares corporativos de seguridad, cumplimiento y rendimiento.</li>
-                                <li><strong>Infraestructura y Automatización:</strong> Aprovisionamiento y mantenimiento de recursos de Microsoft Azure usando Terraform y Bicep. Gestión de despliegues operativos en Kubernetes (AKS) y optimización de pipelines CI/CD.</li>
-                                <li><strong>Seguridad y Gestión de Costos:</strong> Implementación de mejores prácticas de FinOps para optimizar el consumo cloud y garantizar que todas las implementaciones de IAM se adhieran a protocolos de seguridad estrictos en entornos altamente regulados.</li>
+                                <li><strong>Desarrollo de Microservicios:</strong> Diseñé y construí lógica de negocio y servicios de identidad en .NET Core, entregando APIs de alto rendimiento y escalables dentro del ecosistema Youforce.</li>
+                                <li><strong>Desarrollo Asistido por IA:</strong> Impulsé un flujo de trabajo con IA como protagonista usando GitHub Copilot, generando más del 90% del código nuevo con revisión crítica de seguridad, cumplimiento y rendimiento.</li>
+                                <li><strong>Infraestructura y Automatización:</strong> Opero 27 microservicios en 4 entornos AKS (dev/test/acc/prod), aprovisionados con Terraform y Bicep mediante pipelines CI/CD totalmente automatizados.</li>
+                                <li><strong>Seguridad y Gestión de Costos:</strong> Apliqué prácticas FinOps para reducir el gasto en la nube, manteniendo las cargas IAM conformes con estrictos protocolos de seguridad en entornos altamente regulados.</li>
                             </ul>
                         </span>
                         <span class="lang-en">
                             As a member of the Identity and Access Management (IAM) team for Youforce, I focus on the technical development and operational excellence of identity systems supporting large-scale HCM solutions. I leverage an "Augmented Engineering" approach, utilizing AI-driven tools to maximize delivery speed without compromising security or architectural integrity.
                             <ul>
-                                <li><strong>Microservices Development:</strong> Designing and implementing business logic and identity services using .NET Core, ensuring high-performance, scalable, and robust APIs within the Youforce ecosystem.</li>
-                                <li><strong>AI-Assisted Development (GitHub Copilot):</strong> Expert in AI-driven workflows, utilizing Copilot for code generation (90%+) while acting as a critical reviewer to ensure all AI-generated output meets corporate security, compliance, and performance standards.</li>
-                                <li><strong>Infrastructure & Automation:</strong> Provisioning and maintaining Microsoft Azure resources using Terraform and Bicep. Managing operational deployments on Kubernetes (AKS) and streamlining CI/CD pipelines.</li>
-                                <li><strong>Security & Cost Management:</strong> Implementing FinOps best practices to optimize cloud consumption and ensuring that all IAM implementations adhere to strict security protocols in highly regulated environments.</li>
+                                <li><strong>Microservices Development:</strong> Designed and built business logic and identity services on .NET Core, shipping high-performance, scalable APIs within the Youforce ecosystem.</li>
+                                <li><strong>AI-Assisted Development:</strong> Drove an AI-first workflow with GitHub Copilot, generating 90%+ of new code while owning critical review for security, compliance and performance.</li>
+                                <li><strong>Infrastructure & Automation:</strong> Operate 27 microservices across 4 AKS environments (dev/test/acc/prod), provisioned via Terraform and Bicep with fully automated CI/CD pipelines.</li>
+                                <li><strong>Security & Cost Management:</strong> Applied FinOps practices to cut cloud spend while keeping IAM workloads compliant with strict security protocols in highly regulated environments.</li>
                             </ul>
                         </span>
                         <div class="tech-tags">
@@ -318,19 +318,13 @@
                     </div>
                     <div class="item-description">
                         <span class="lang-es">
-                            Lideré el desarrollo y mantenimiento de la plataforma central de intermediación de seguros, centrándome en la integración de datos de terceros y la gestión de carteras de clientes bancarios.
                             <ul>
-                                <li><strong>Agregación de Datos de Terceros:</strong> Diseñé flujos de trabajo automatizados para obtener y normalizar datos de pólizas de múltiples proveedores de seguros externos, garantizando alta integridad de datos dentro de los sistemas centrales del banco.</li>
-                                <li><strong>Motor de Cálculo de Primas:</strong> Desarrollé lógica de negocio para calcular y validar primas de clientes, garantizando precisión matemática y cumplimiento normativo para productos de seguros mediados por el banco.</li>
-                                <li><strong>Integración de Sistemas B2B:</strong> Optimicé el intercambio de datos entre el banco y socios externos, gestionando procesos ETL complejos e integraciones para mejorar la eficiencia operativa.</li>
+                                <li>Dirigí el desarrollo técnico de la plataforma central de intermediación de seguros — único desarrollador — procesando miles de pólizas al día en hasta 10 aseguradoras y reaseguradoras, cubriendo el cálculo de primas, la agregación de datos de terceros e integraciones B2B bajo estricto cumplimiento normativo.</li>
                             </ul>
                         </span>
                         <span class="lang-en">
-                            Led the development and maintenance of the core insurance brokerage platform, focusing on third-party data integration and bank customer portfolio management.
                             <ul>
-                                <li><strong>Third-Party Data Aggregation:</strong> Engineered automated workflows to fetch and normalize policy data from multiple external insurance providers, ensuring high data integrity within the bank's core systems.</li>
-                                <li><strong>Premium Calculation Engine:</strong> Developed business logic to calculate and validate customer premiums, ensuring mathematical accuracy and regulatory compliance for bank-mediated insurance products.</li>
-                                <li><strong>B2B System Integration:</strong> Streamlined data exchange between the bank and external partners, managing complex ETL processes and integrations to improve operational efficiency.</li>
+                                <li>Directed the technical development of the core insurance brokerage platform — sole developer — processing thousands of policies/day across up to 10 insurance and reinsurance carriers, covering premium calculation, third-party data aggregation and B2B integrations under strict regulatory compliance.</li>
                             </ul>
                         </span>
                         <div class="tech-tags">
@@ -339,6 +333,7 @@
                             <span class="tech-tag">ASP.NET</span>
                             <span class="tech-tag">SQL Server</span>
                             <span class="tech-tag">Entity Framework</span>
+                            <span class="tech-tag">WPF (Windows Forms)</span>
                         </div>
                     </div>
                 </div>
@@ -359,15 +354,15 @@
                     <div class="item-description">
                         <span class="lang-es">
                             <ul>
-                                <li><strong>Vueling (Gestión de Tripulación & Cumplimiento Normativo):</strong> Desarrollé el panel de gestión central para rotaciones de vuelo de la Tripulación de Cabina. Diseñé motores de reglas complejos para aplicar el Cumplimiento de Regulación Aeronáutica (limitaciones de tiempo de vuelo), garantizando la seguridad operativa y previniendo infracciones legales/regulatorias para la aerolínea.</li>
-                                <li><strong>Ibercaja Seguros (Seguros de Vida):</strong> Lideré el análisis y desarrollo del motor central de cálculo de primas, traduciendo la lógica actuarial en software financiero de alta precisión.</li>
+                                <li><strong>Vueling (Gestión de Tripulación, escala flota):</strong> Construí el panel de rotaciones de cabina durante ~1 año con un equipo de 5 desarrolladores, soportando la planificación diaria en toda la operación y garantizando el cumplimiento de EASA flight-time-limitation para prevenir infracciones.</li>
+                                <li><strong>Ibercaja Seguros (Seguros de Vida):</strong> Encabecé el análisis y desarrollo del motor central de cálculo de primas, traduciendo la lógica actuarial en software financiero de alta precisión.</li>
                                 <li><strong>Ingeniería Full-Stack:</strong> Aproveché el ecosistema .NET y Angular para construir herramientas de alta disponibilidad para sectores donde la precisión de datos y la adherencia regulatoria son innegociables.</li>
                             </ul>
                         </span>
                         <span class="lang-en">
                             <ul>
-                                <li><strong>Vueling (Crew Management & Regulatory Compliance):</strong> Developed the core management panel for Cabin Crew flight rotations. Engineered complex rule engines to enforce Aviation Regulatory Compliance (flight time limitations), ensuring operational safety and preventing legal/regulatory infractions for the airline.</li>
-                                <li><strong>Ibercaja Seguros (Life Insurance):</strong> Led the analysis and development of the core premium calculation engine, translating actuarial logic into high-precision financial software.</li>
+                                <li><strong>Vueling (fleet-wide Crew Management):</strong> Built the airline's cabin-crew rotations panel over ~1 year with a 5-developer team, powering daily rotation planning across the full operation and enforcing EASA flight-time-limitation compliance to prevent regulatory infractions.</li>
+                                <li><strong>Ibercaja Seguros (Life Insurance):</strong> Spearheaded the analysis and development of the core premium calculation engine, translating actuarial logic into high-precision financial software.</li>
                                 <li><strong>Full-Stack Engineering:</strong> Leveraged the .NET ecosystem and Angular to build high-availability tools for sectors where data accuracy and regulatory adherence are non-negotiable.</li>
                             </ul>
                         </span>
@@ -377,6 +372,9 @@
                             <span class="tech-tag">C#</span>
                             <span class="tech-tag">Entity Framework</span>
                             <span class="tech-tag">SQL Server</span>
+                            <span class="tech-tag">LINQ</span>
+                            <span class="tech-tag">WinForms</span>
+                            <span class="tech-tag">IIS</span>
                         </div>
                     </div>
                 </div>
@@ -395,14 +393,14 @@
                     <div class="item-description">
                         <span class="lang-es">
                             <ul>
-                                <li><strong>Arquitectura Legacy (VB6 / COM+):</strong> Gestioné y optimicé lógica de negocio crítica usando componentes COM+ y Visual Basic 6.</li>
-                                <li><strong>Desarrollo de UI Rica (Silverlight/WPF):</strong> Desarrollé dashboards interactivos orientados a datos usando Silverlight y arquitecturas basadas en XAML.</li>
+                                <li><strong>Arquitectura Legacy (VB6 / COM+ / ASP Classic):</strong> Mantuve la lógica de negocio crítica sobre la plataforma legacy VB6 + COM+ + ASP Classic de un cliente, dando soporte a las operaciones del día a día durante un periodo de ~2 meses.</li>
+                                <li><strong>Banco Sabadell (aplicación de banca interna):</strong> Construí pantallas Silverlight/WPF para la aplicación de banca interna del banco como parte de un equipo de 2 personas durante un proyecto de ~3 meses, asumiendo la entrega end-to-end de funcionalidades en producción.</li>
                             </ul>
                         </span>
                         <span class="lang-en">
                             <ul>
-                                <li><strong>Legacy Architecture (VB6 / COM+):</strong> Managed and optimized mission-critical business logic using COM+ components and Visual Basic 6.</li>
-                                <li><strong>Rich UI Development (Silverlight/WPF):</strong> Developed interactive data-driven dashboards using Silverlight and XAML-based architectures.</li>
+                                <li><strong>Legacy Architecture (VB6 / COM+ / ASP Classic):</strong> Maintained mission-critical business logic on a client's legacy VB6 + COM+ + ASP Classic platform, supporting day-to-day operations during a ~2-month period.</li>
+                                <li><strong>Banco Sabadell (internal banking application):</strong> Built Silverlight/WPF screens for the bank's internal banking application as part of a 2-person team during a ~3-month engagement, owning end-to-end delivery of production features.</li>
                             </ul>
                         </span>
                         <div class="tech-tags">
@@ -415,93 +413,35 @@
                     </div>
                 </div>
 
-                <div class="print-only-separator" style="height: 200px;"></div>
-
                 <div class="experience-item">
                     <div class="item-header">
                         <div>
                             <div class="item-title">
-                                <span class="lang-es">Desarrollador de Aplicaciones de Escritorio (Tecnologías Microsoft)</span>
-                                <span class="lang-en">Desktop Application Developer (Microsoft Technologies)</span>
+                                <span class="lang-es">Desarrollador de Software</span>
+                                <span class="lang-en">Software Developer</span>
                             </div>
                             <div class="item-company">Hiberus Tecnología</div>
                         </div>
-                        <div class="item-date"><span class="lang-es">May. 2015 - Oct. 2016</span><span class="lang-en">May 2015 - Oct. 2016</span></div>
+                        <div class="item-date"><span class="lang-es">Sept. 2013 - Oct. 2016</span><span class="lang-en">Sep. 2013 - Oct. 2016</span></div>
                     </div>
                     <div class="item-description">
                         <span class="lang-es">
-                            Desarrollo de ciclo completo de software ERP basado en escritorio para Windows.
+                            <ul>
+                                <li>Entregué aplicaciones ERP de escritorio Windows y web de ciclo completo sobre el stack Microsoft (ASP.NET, ADO.NET, WinForms, VB.NET, SQL Server).</li>
+                                <li>Implementé un ERP de pedidos de venta, un CRM personalizado con sincronización en tiempo real y sistemas de gestión para la Diputación Provincial de Zaragoza, progresando desde prácticas hasta responsabilidades de desarrollador senior.</li>
+                            </ul>
                         </span>
                         <span class="lang-en">
-                            Full-lifecycle development of Windows-based desktop ERP software.
+                            <ul>
+                                <li>Delivered full-lifecycle Windows desktop ERP and web applications across the Microsoft stack (ASP.NET, ADO.NET, WinForms, VB.NET, SQL Server).</li>
+                                <li>Shipped a sales-order ERP, a real-time-sync custom CRM, and management systems for the Provincial Council of Zaragoza, progressing from internship to senior developer responsibilities.</li>
+                            </ul>
                         </span>
                         <div class="tech-tags">
-                            <span class="tech-tag">Windows Forms</span>
-                            <span class="tech-tag">VB.NET</span>
-                            <span class="tech-tag">SQL Server</span>
                             <span class="tech-tag">.NET Framework</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="item-header">
-                        <div>
-                            <div class="item-title">
-                                <span class="lang-es">Desarrollador de Aplicaciones Web</span>
-                                <span class="lang-en">Web Application Developer</span>
-                            </div>
-                            <div class="item-company">Hiberus Tecnología</div>
-                        </div>
-                        <div class="item-date"><span class="lang-es">Mar. 2014 - Oct. 2016</span><span class="lang-en">Mar. 2014 - Oct. 2016</span></div>
-                    </div>
-                    <div class="item-description">
-                        <span class="lang-es">
-                            Desarrollo de aplicaciones web escalables aprovechando el stack de Microsoft (ASP.NET, ADO.NET) y frameworks de UI responsivos.
-                            <ul>
-                                <li>Desarrollo de ERP web para gestión de pedidos de venta</li>
-                                <li>CRM personalizado con sincronización de datos en tiempo real</li>
-                                <li>Sistemas de gestión para Diputación Provincial de Zaragoza</li>
-                            </ul>
-                        </span>
-                        <span class="lang-en">
-                            Engineering scalable web applications leveraging the Microsoft stack (ASP.NET, ADO.NET) and responsive UI frameworks.
-                            <ul>
-                                <li>Web ERP development for sales order management</li>
-                                <li>Custom CRM with real-time data synchronization</li>
-                                <li>Management systems for Provincial Council of Zaragoza</li>
-                            </ul>
-                        </span>
-                        <div class="tech-tags">
                             <span class="tech-tag">ASP.NET</span>
-                            <span class="tech-tag">Bootstrap</span>
-                            <span class="tech-tag">jQuery</span>
-                            <span class="tech-tag">SQL Server</span>
                             <span class="tech-tag">ADO.NET</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="item-header">
-                        <div>
-                            <div class="item-title">
-                                <span class="lang-es">Desarrollador de Software Junior (Prácticas)</span>
-                                <span class="lang-en">Junior Software Developer (Internship)</span>
-                            </div>
-                            <div class="item-company">Hiberus Tecnología</div>
-                        </div>
-                        <div class="item-date"><span class="lang-es">Sept. 2013 - Feb. 2014</span><span class="lang-en">Sep. 2013 - Feb. 2014</span></div>
-                    </div>
-                    <div class="item-description">
-                        <span class="lang-es">
-                            Desarrollo y mantenimiento de aplicaciones usando el stack .NET
-                        </span>
-                        <span class="lang-en">
-                            Developed and maintained applications using the .NET stack
-                        </span>
-                        <div class="tech-tags">
-                            <span class="tech-tag">.NET Framework</span>
+                            <span class="tech-tag">Windows Forms</span>
                             <span class="tech-tag">VB.NET</span>
                             <span class="tech-tag">SQL Server</span>
                         </div>
@@ -510,7 +450,7 @@
             </div>
 
             <!-- Education Section -->
-            <div class="section">
+            <div class="section" id="education">
                 <h2>
                     <span class="lang-es">Educación</span>
                     <span class="lang-en">Education</span>

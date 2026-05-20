@@ -1,5 +1,6 @@
 ---
 description: Enter explore mode - think through ideas, investigate problems, clarify requirements
+model: Claude Opus 4.7 (copilot)
 ---
 
 Enter explore mode. Think deeply. Visualize freely. Follow the conversation wherever it goes.

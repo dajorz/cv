@@ -1429,7 +1429,8 @@ body.lang-english .lang-en {
     }
 
     body.ats-print .container {
-        display: block !important;
+        display: flex !important;
+        flex-direction: column !important;
         max-width: none !important;
         width: 100% !important;
         margin: 0 !important;
@@ -1442,6 +1443,21 @@ body.lang-english .lang-en {
         height: auto !important;
     }
 
+    /* Section reorder: sidebar and main-content become transparent flex wrappers */
+    body.ats-print .sidebar,
+    body.ats-print .main-content {
+        display: contents !important;
+    }
+
+    /* ATS section order: Identity → Contact → Summary → Experience → Skills → Education → Languages */
+    body.ats-print .profile-section      { order: 1; }
+    body.ats-print .sidebar-section.contact   { order: 2; }
+    body.ats-print #summary              { order: 3; }
+    body.ats-print #experience           { order: 4; }
+    body.ats-print .sidebar-section.skills    { order: 5; }
+    body.ats-print #education            { order: 6; }
+    body.ats-print .sidebar-section.languages { order: 7; }
+
     /* Hide only the decorative-only elements; keep sidebar content visible */
     body.ats-print .profile-photo,
     body.ats-print .contact-icon,
@@ -1452,20 +1468,9 @@ body.lang-english .lang-en {
         display: none !important;
     }
 
-    /* Sidebar: neutralise styling, render as a plain leading block */
+    /* Sidebar: display:contents makes children direct flex items (reorder via order property) */
     body.ats-print .sidebar {
-        display: block !important;
-        background: white !important;
-        color: #000 !important;
-        padding: 0 20px 10px 20px !important;
-        margin: 0 !important;
-        width: 100% !important;
-        min-height: auto !important;
-        height: auto !important;
-        position: static !important;
-        box-shadow: none !important;
-        border: none !important;
-        border-radius: 0 !important;
+        display: contents !important;
     }
 
     body.ats-print .sidebar::before,
@@ -1477,7 +1482,7 @@ body.lang-english .lang-en {
     body.ats-print .profile-section {
         text-align: left !important;
         margin: 0 0 8px 0 !important;
-        padding: 0 !important;
+        padding: 0 20px !important;
         background: none !important;
         border: none !important;
     }
@@ -1509,7 +1514,7 @@ body.lang-english .lang-en {
     body.ats-print .sidebar-section {
         background: none !important;
         border: none !important;
-        padding: 6px 0 0 0 !important;
+        padding: 0 20px !important;
         margin: 0 !important;
         box-shadow: none !important;
     }
@@ -1521,8 +1526,8 @@ body.lang-english .lang-en {
         font-weight: bold !important;
         border-bottom: 1px solid #000 !important;
         border-image: none !important;
-        padding: 0 0 2px 0 !important;
-        margin: 8px 0 6px 0 !important;
+        padding: 0 0 4px 0 !important;
+        margin: 0 0 10px 0 !important;
         background: none !important;
         text-transform: none !important;
         position: static !important;
@@ -1631,14 +1636,19 @@ body.lang-english .lang-en {
         min-height: auto !important;
     }
 
-    /* Section headings: plain */
+    /* Section headings: plain. Keep heading together with the first content block to avoid orphaned titles at page bottom. */
+    body.ats-print .section h2,
+    body.ats-print .sidebar-section h3 {
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+    }
     body.ats-print .section h2 {
         font-family: Arial, Helvetica, sans-serif !important;
         color: #000 !important;
         border-bottom: 1px solid #000 !important;
         border-image: none !important;
-        padding-bottom: 4px !important;
-        margin-bottom: 12px !important;
+        padding: 0 0 4px 0 !important;
+        margin: 0 0 10px 0 !important;
         font-size: 16px !important;
     }
 
@@ -1648,7 +1658,7 @@ body.lang-english .lang-en {
         border: none !important;
         border-left: none !important;
         border-radius: 0 !important;
-        padding: 0 0 10px 0 !important;
+        padding: 0 !important;
         font-size: 13px !important;
         color: #000 !important;
     }
@@ -1736,8 +1746,22 @@ body.lang-english .lang-en {
     /* Tech tags → plain inline text */
     body.ats-print .tech-tags {
         display: block !important;
-        margin-top: 6px !important;
+        margin: 10px 0 0 0 !important;
+        padding-left: 0 !important;
+        list-style: none !important;
+        clear: both !important;
+        break-inside: avoid !important;
         gap: 0 !important;
+    }
+
+    /* Defensive: suppress any list marker if browser renders tech-tags as a list item */
+    body.ats-print .tech-tags::marker {
+        content: none !important;
+    }
+
+    /* Extra separation when Tech line follows a bullet list (defensive rule) */
+    body.ats-print .item-description ul + .tech-tags {
+        margin-top: 10px !important;
     }
 
     body.ats-print .tech-tags::before {
@@ -1765,11 +1789,34 @@ body.lang-english .lang-en {
         content: "" !important;
     }
 
-    /* Page break control */
-    body.ats-print .section {
+    /* Page break control: extra top margin separates consecutive sections (e.g. Technical Skills → Education) */
+    body.ats-print .section,
+    body.ats-print .sidebar-section {
         break-inside: auto !important;
-        margin-top: 8px !important;
-        padding-top: 0 !important;
+        margin-top: 18px !important;
+        padding: 0 20px !important;
+    }
+
+    /* First section in flow has no extra top margin */
+    body.ats-print .profile-section {
+        margin-top: 0 !important;
+    }
+
+    /* Zero-out bottom margin on the last item in each section so the
+       inter-section gap is uniform (only margin-top: 18px between sections).
+       Flex containers do NOT collapse margins. */
+    body.ats-print .experience-item:last-child,
+    body.ats-print .education-item:last-child,
+    body.ats-print .project-item:last-child {
+        margin-bottom: 0 !important;
+    }
+
+    /* Force Technical Skills to start on a new page.
+       Without this, Chrome's flex+order fragmentation places Technical Skills
+       above the continuation of Experience when Experience overflows a page. */
+    body.ats-print .sidebar-section.skills {
+        break-before: page !important;
+        page-break-before: always !important;
     }
 
     body.ats-print .experience-item {
