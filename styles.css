@@ -171,6 +171,13 @@ body {
     pointer-events: none;
 }
 
+/* ATS PDF Button - positioned below main PDF button */
+.pdf-download-btn--ats {
+    top: 195px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
 /* Sidebar */
 .sidebar {
     background: linear-gradient(180deg, #334155 0%, #475569 50%, #64748b 100%);
@@ -821,9 +828,11 @@ body.lang-english .lang-en {
         width: 16px;
         height: 16px;
     }
-}
 
-/* Mobile - Medium (max-width: 480px) */
+    .pdf-download-btn--ats {
+        top: 145px;
+    }
+}
 @media screen and (max-width: 480px) {
     body {
         padding: 0;
@@ -997,6 +1006,10 @@ body.lang-english .lang-en {
         width: 14px;
         height: 14px;
     }
+
+    .pdf-download-btn--ats {
+        top: 126px;
+    }
 }
 
 /* Mobile - Small (max-width: 360px) */
@@ -1070,6 +1083,10 @@ body.lang-english .lang-en {
     .pdf-download-btn svg {
         width: 12px;
         height: 12px;
+    }
+
+    .pdf-download-btn--ats {
+        top: 112px;
     }
 }
 
@@ -1166,7 +1183,8 @@ body.lang-english .lang-en {
     }
 
     .language-toggle,
-    .pdf-download-btn {
+    .pdf-download-btn,
+    .pdf-download-btn--ats {
         display: none !important;
     }
 
@@ -1393,6 +1411,379 @@ body.lang-english .lang-en {
     .sidebar-section:last-child {
         padding-top: 30px !important;
     }
+}
+
+/* ============================================
+   ATS PRINT MODE - Single column, plain text
+   Only active when body.ats-print is set
+   ============================================ */
+@media print {
+    body.ats-print {
+        background: white !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        font-family: Arial, Helvetica, sans-serif !important;
+        color: #000 !important;
+        line-height: 1.5 !important;
+        page: ats-page;
+    }
+
+    body.ats-print .container {
+        display: block !important;
+        max-width: none !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        background: white !important;
+        grid-template-columns: 1fr !important;
+        min-height: auto !important;
+        height: auto !important;
+    }
+
+    /* Hide only the decorative-only elements; keep sidebar content visible */
+    body.ats-print .profile-photo,
+    body.ats-print .contact-icon,
+    body.ats-print .language-toggle,
+    body.ats-print .pdf-download-btn,
+    body.ats-print .pdf-download-btn--ats,
+    body.ats-print .print-only-separator {
+        display: none !important;
+    }
+
+    /* Sidebar: neutralise styling, render as a plain leading block */
+    body.ats-print .sidebar {
+        display: block !important;
+        background: white !important;
+        color: #000 !important;
+        padding: 0 20px 10px 20px !important;
+        margin: 0 !important;
+        width: 100% !important;
+        min-height: auto !important;
+        height: auto !important;
+        position: static !important;
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+    }
+
+    body.ats-print .sidebar::before,
+    body.ats-print .sidebar::after {
+        display: none !important;
+        content: none !important;
+    }
+
+    body.ats-print .profile-section {
+        text-align: left !important;
+        margin: 0 0 8px 0 !important;
+        padding: 0 !important;
+        background: none !important;
+        border: none !important;
+    }
+
+    body.ats-print .sidebar .name {
+        font-family: Arial, Helvetica, sans-serif !important;
+        color: #000 !important;
+        font-size: 20px !important;
+        font-weight: bold !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: none !important;
+        -webkit-text-fill-color: #000 !important;
+        background-clip: initial !important;
+        -webkit-background-clip: initial !important;
+    }
+
+    body.ats-print .sidebar .title {
+        font-family: Arial, Helvetica, sans-serif !important;
+        color: #000 !important;
+        font-size: 13px !important;
+        margin: 2px 0 6px 0 !important;
+        padding: 0 !important;
+        background: none !important;
+        border: none !important;
+        font-style: normal !important;
+    }
+
+    body.ats-print .sidebar-section {
+        background: none !important;
+        border: none !important;
+        padding: 6px 0 0 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+    }
+
+    body.ats-print .sidebar-section h3 {
+        font-family: Arial, Helvetica, sans-serif !important;
+        color: #000 !important;
+        font-size: 14px !important;
+        font-weight: bold !important;
+        border-bottom: 1px solid #000 !important;
+        border-image: none !important;
+        padding: 0 0 2px 0 !important;
+        margin: 8px 0 6px 0 !important;
+        background: none !important;
+        text-transform: none !important;
+        position: static !important;
+    }
+
+    /* Kill the decorative gradient underline below sidebar section headings */
+    body.ats-print .sidebar-section h3::after {
+        display: none !important;
+        content: none !important;
+        background: none !important;
+    }
+
+    body.ats-print .contact-item {
+        display: block !important;
+        background: none !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 0 2px 0 !important;
+        font-size: 12px !important;
+        color: #000 !important;
+    }
+
+    body.ats-print .contact-item a {
+        color: #000 !important;
+        text-decoration: none !important;
+        font-size: 12px !important;
+    }
+
+    body.ats-print .skills-category {
+        margin: 0 0 4px 0 !important;
+        padding: 0 !important;
+        background: none !important;
+        border: none !important;
+    }
+
+    body.ats-print .skills-category h4 {
+        font-family: Arial, Helvetica, sans-serif !important;
+        color: #000 !important;
+        font-size: 12px !important;
+        font-weight: bold !important;
+        margin: 4px 0 1px 0 !important;
+        padding: 0 !important;
+        background: none !important;
+        display: inline !important;
+        text-transform: none !important;
+    }
+
+    body.ats-print .skills-category h4::after {
+        content: ": " !important;
+    }
+
+    body.ats-print .skills-list {
+        display: inline !important;
+        background: none !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        font-size: 12px !important;
+        color: #000 !important;
+    }
+
+    /* Force the inner lang spans (display:block by default) back to inline
+       inside skills/languages/h4, so the visible language flows on one line.
+       Only target the ACTIVE language so the inactive one stays hidden. */
+    body.ats-print:not(.lang-english) .skills-category h4 .lang-es,
+    body.ats-print:not(.lang-english) .skills-list .lang-es,
+    body.ats-print:not(.lang-english) .language-item .lang-es,
+    body.ats-print.lang-english .skills-category h4 .lang-en,
+    body.ats-print.lang-english .skills-list .lang-en,
+    body.ats-print.lang-english .language-item .lang-en {
+        display: inline !important;
+    }
+
+    body.ats-print .language-item {
+        display: block !important;
+        background: none !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 0 2px 0 !important;
+        font-size: 12px !important;
+        color: #000 !important;
+    }
+
+    body.ats-print .language-item > span {
+        font-weight: bold !important;
+    }
+
+    body.ats-print .language-level {
+        font-weight: normal !important;
+        background: none !important;
+        color: #000 !important;
+        padding: 0 0 0 6px !important;
+        text-transform: none !important;
+        display: inline !important;
+    }
+
+    body.ats-print .language-level::before {
+        content: "\2014 " !important;
+    }
+
+    /* Main content: full width, no decorations */
+    body.ats-print .main-content {
+        padding: 0 20px 10px 20px !important;
+        background: white !important;
+        width: 100% !important;
+        min-height: auto !important;
+    }
+
+    /* Section headings: plain */
+    body.ats-print .section h2 {
+        font-family: Arial, Helvetica, sans-serif !important;
+        color: #000 !important;
+        border-bottom: 1px solid #000 !important;
+        border-image: none !important;
+        padding-bottom: 4px !important;
+        margin-bottom: 12px !important;
+        font-size: 16px !important;
+    }
+
+    /* Summary: plain */
+    body.ats-print .summary {
+        background: white !important;
+        border: none !important;
+        border-left: none !important;
+        border-radius: 0 !important;
+        padding: 0 0 10px 0 !important;
+        font-size: 13px !important;
+        color: #000 !important;
+    }
+
+    body.ats-print .summary::before {
+        display: none !important;
+    }
+
+    /* Experience / education / project items: plain */
+    body.ats-print .experience-item,
+    body.ats-print .education-item,
+    body.ats-print .project-item {
+        background: white !important;
+        border: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        margin-bottom: 14px !important;
+        box-shadow: none !important;
+    }
+
+    body.ats-print .experience-item::before,
+    body.ats-print .education-item::before,
+    body.ats-print .project-item::before {
+        display: none !important;
+    }
+
+    body.ats-print .experience-item:hover,
+    body.ats-print .education-item:hover,
+    body.ats-print .project-item:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
+    /* Item header */
+    body.ats-print .item-header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: baseline !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+
+    body.ats-print .item-title {
+        font-size: 14px !important;
+        color: #000 !important;
+    }
+
+    body.ats-print .item-company {
+        font-size: 13px !important;
+        color: #000 !important;
+    }
+
+    body.ats-print .item-date {
+        font-size: 12px !important;
+        color: #000 !important;
+        background: none !important;
+        border: none !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+    }
+
+    body.ats-print .item-description {
+        font-size: 13px !important;
+        color: #000 !important;
+    }
+
+    body.ats-print .item-description a {
+        color: #000 !important;
+        text-decoration: none !important;
+    }
+
+    /* Append destination URL after external links in education entries
+       (e.g. "View credential") so ATS parsers see the URL */
+    body.ats-print .education-item a[href^="http"]::after {
+        content: " (" attr(href) ")" !important;
+        font-size: 11px !important;
+        color: #000 !important;
+        font-weight: normal !important;
+    }
+
+    body.ats-print .item-description li::marker {
+        color: #000 !important;
+    }
+
+    /* Tech tags → plain inline text */
+    body.ats-print .tech-tags {
+        display: block !important;
+        margin-top: 6px !important;
+        gap: 0 !important;
+    }
+
+    body.ats-print .tech-tags::before {
+        content: "Tech: " !important;
+        font-weight: bold !important;
+        font-size: 12px !important;
+    }
+
+    body.ats-print .tech-tag {
+        display: inline !important;
+        background: none !important;
+        color: #000 !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        font-size: 12px !important;
+        font-weight: normal !important;
+    }
+
+    body.ats-print .tech-tag::after {
+        content: ", " !important;
+    }
+
+    body.ats-print .tech-tag:last-child::after {
+        content: "" !important;
+    }
+
+    /* Page break control */
+    body.ats-print .section {
+        break-inside: auto !important;
+        margin-top: 8px !important;
+        padding-top: 0 !important;
+    }
+
+    body.ats-print .experience-item {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        margin-top: 8px !important;
+        padding-top: 0 !important;
+    }
+}
+
+/* Tighter page margins for ATS print mode (named page, opt-in via body.ats-print) */
+@page ats-page {
+    size: A4;
+    margin: 15mm 15mm 15mm 15mm;
 }
 
 @page {

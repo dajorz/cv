@@ -47,6 +47,10 @@ Special print optimizations include:
 - Hidden web-only elements
 - Print-specific styling
 
+### 📄 ATS-Friendly PDF
+
+Click the **ATS PDF** button on the page to generate an ATS-optimized PDF via the browser's print dialog (Save as PDF). The output uses a single-column layout with system fonts and no graphics, making it parseable by Applicant Tracking Systems. The suggested filename includes the current language: `CV-Daniel-Jordan-ATS-EN.pdf` or `CV-Daniel-Jordan-ATS-ES.pdf`.
+
 ## 🚀 Quick Start
 
 ### View Online

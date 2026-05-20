@@ -35,7 +35,7 @@ function calculateYearsOfExperience() {
     const spanEn = document.getElementById('years-experience-en');
     
     if (spanEs) {
-        spanEs.textContent = `Más de ${years} años`;
+        spanEs.textContent = `más de ${years} años`;
     }
     
     if (spanEn) {
@@ -49,7 +49,8 @@ function calculateYearsOfExperience() {
  */
 function handleLanguageToggleScroll() {
     const languageToggle = document.querySelector('.language-toggle');
-    const pdfButton = document.querySelector('.pdf-download-btn');
+    const pdfButton = document.querySelector('.pdf-download-btn:not(.pdf-download-btn--ats)');
+    const atsButton = document.getElementById('ats-download-btn');
     let lastScrollTop = 0;
     const scrollThreshold = 10; // Pixels from top to consider "at top"
     
@@ -58,6 +59,7 @@ function handleLanguageToggleScroll() {
         if (window.innerWidth >= 768) {
             languageToggle.classList.remove('hidden-scroll');
             if (pdfButton) pdfButton.classList.remove('hidden-scroll');
+            if (atsButton) atsButton.classList.remove('hidden-scroll');
             return;
         }
         
@@ -67,10 +69,12 @@ function handleLanguageToggleScroll() {
             // At the top of the page - show both elements
             languageToggle.classList.remove('hidden-scroll');
             if (pdfButton) pdfButton.classList.remove('hidden-scroll');
+            if (atsButton) atsButton.classList.remove('hidden-scroll');
         } else {
             // Scrolled down - hide both elements
             languageToggle.classList.add('hidden-scroll');
             if (pdfButton) pdfButton.classList.add('hidden-scroll');
+            if (atsButton) atsButton.classList.add('hidden-scroll');
         }
         
         lastScrollTop = scrollTop;
@@ -81,9 +85,52 @@ function handleLanguageToggleScroll() {
         if (window.innerWidth >= 768) {
             languageToggle.classList.remove('hidden-scroll');
             if (pdfButton) pdfButton.classList.remove('hidden-scroll');
+            if (atsButton) atsButton.classList.remove('hidden-scroll');
         }
     });
 }
+
+/**
+ * ATS Print Mode - Activate ATS-friendly print layout
+ * Swaps title for filename hint, adds body class, triggers print
+ */
+let _originalTitle = '';
+let _atsPrintCleanupTimer = null;
+
+function activateAtsPrint() {
+    const isEnglish = document.body.classList.contains('lang-english');
+    const lang = isEnglish ? 'EN' : 'ES';
+
+    // Store original title and set ATS filename hint.
+    // Format `DanielJordan-<LANG>` follows Enhancv's recommendation
+    // (first+last name, no numbers, no extra periods, no ATS tag).
+    _originalTitle = document.title;
+    document.title = 'DanielJordan-' + lang;
+
+    // Activate ATS print mode
+    document.body.classList.add('ats-print');
+
+    // Safety fallback: restore after 60s if afterprint never fires
+    _atsPrintCleanupTimer = setTimeout(restoreAfterAtsPrint, 60000);
+
+    window.print();
+}
+
+function restoreAfterAtsPrint() {
+    if (!document.body.classList.contains('ats-print')) return;
+    document.body.classList.remove('ats-print');
+    if (_originalTitle) {
+        document.title = _originalTitle;
+        _originalTitle = '';
+    }
+    if (_atsPrintCleanupTimer) {
+        clearTimeout(_atsPrintCleanupTimer);
+        _atsPrintCleanupTimer = null;
+    }
+}
+
+// Restore after print dialog closes (save or cancel)
+window.addEventListener('afterprint', restoreAfterAtsPrint);
 
 /**
  * Initialize CV functionality when DOM is loaded
@@ -101,6 +148,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize scroll-based language toggle visibility (mobile only)
     handleLanguageToggleScroll();
+    
+    // Wire ATS print button
+    const atsBtn = document.getElementById('ats-download-btn');
+    if (atsBtn) {
+        atsBtn.addEventListener('click', activateAtsPrint);
+    }
     
     // Console info for developers
     console.log('CV initialized successfully');
